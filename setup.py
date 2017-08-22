@@ -1,4 +1,4 @@
 from distutils.core import setup, Extension
 setup(
-    ext_modules=[Extension("randomdict", ["randomdict.c"])]
+    ext_modules=[Extension("randomdict", ["random_weighted/randomdict.c"])]
 )

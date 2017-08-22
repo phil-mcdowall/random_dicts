@@ -31,21 +31,25 @@ int compare (const void * a, const void * b)
 static PyObject *randomdict_random_dict(PyObject *self, PyObject *args)
 {
     int N; //Number of draws
+    float total; //sum of weights
     PyObject *dictionary; // Input dictionary
     PyObject *key, *value; // Key value pairs set during iteration
     Py_ssize_t pos = 0; // Counter for dictionary iteration
 
     // Template argument check (ags,Format string, memory addresses...)
-     if(!PyArg_ParseTuple(args,"IO",&N,&dictionary))
+     if(!PyArg_ParseTuple(args,"IOf",&N,&dictionary,&total))
         return NULL;
 
-
-    float total = 0.0; // Var to store dictionary total
-    //Sum dictionary keys
+       if(total == 0.0){
+//    float total = 0.0; // Var to store dictionary total
+//    //Sum dictionary keys
     while (PyDict_Next(dictionary, &pos, &key, &value)) {
         total += PyFloat_AsDouble(value);
     };
+}
 
+    if(total == 0.0){
+    return NULL;}
 
     //Generate N random floats between 0 and the sum of dictionary keys
     float targets[N];
