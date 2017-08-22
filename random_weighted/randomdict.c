@@ -53,7 +53,8 @@ static PyObject *randomdict_random_dict(PyObject *self, PyObject *args)
 
     //Generate N random floats between 0 and the sum of dictionary keys
     float targets[N];
-    for (int i = 0; i < N; i++) {
+    int i;
+    for (i = 0; i < N; i++) {
     targets[i] = ((float)rand()/(float)RAND_MAX)*total;
     }
 
