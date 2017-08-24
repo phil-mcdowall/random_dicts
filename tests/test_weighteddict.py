@@ -1,4 +1,4 @@
-import weighted_dicts.weighted_dict as weighteddict
+import weighted_dict as weighteddict
 import pytest
 
 class TestClass(object):
