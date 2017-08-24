@@ -1,3 +1,5 @@
+import sys 
+sys.path.append('..')
 import weighted_dict as weighteddict
 import pytest
 
