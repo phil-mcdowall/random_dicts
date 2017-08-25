@@ -1,6 +1,4 @@
 [![Build Status](https://travis-ci.org/phil-mcdowall/weighted_dicts.svg?branch=master)](https://travis-ci.org/phil-mcdowall/weighted_dicts)
-
-
 [![codecov](https://codecov.io/gh/phil-mcdowall/weighted_dicts/branch/master/graph/badge.svg)](https://codecov.io/gh/phil-mcdowall/weighted_dicts)
 
 
