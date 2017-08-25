@@ -5,5 +5,5 @@ python:
   - "3.6"
   - "3.6-dev"
 install:
-  - python setup.py build_ext
-script: pytest
+  - python setup.py install
+script: pytest --cov ../
