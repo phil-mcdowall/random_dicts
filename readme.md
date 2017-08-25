@@ -1,4 +1,6 @@
-Weighted dictionaries for python 3.6.
+[![Build Status](https://travis-ci.org/phil-mcdowall/weighted_dicts.svg?branch=master)](https://travis-ci.org/phil-mcdowall/weighted_dicts)
+
+Weighted dictionaries for python 3.6. In development. 0.01dev
 
 Installation:
 ```bash
