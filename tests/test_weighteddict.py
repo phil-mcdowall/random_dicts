@@ -1,10 +1,8 @@
-import sys
-sys.path.insert(0, '..')
-
 import weighted_dict as weighteddict
 import pytest
 
-class TestClass(object):
+
+class TestWeightedDict(object):
     def test_keyerror(self):
         """raise key error if key not in dict"""
         x = weighteddict.WeightedDict()
@@ -18,6 +16,12 @@ class TestClass(object):
         x[2] = "value 2",2
         assert x._total == 3
         assert len(x._data) == len(x._weights)
+
+    def test_get(self):
+        x = weighteddict.WeightedDict()
+        x[1] = "value 1", 1
+        assert x.get(1) == "value 1"
+        assert x.get(0,default="default_val") == "default_val"
 
     def test_set_no_weight(self):
         """raise TypeError if no weight specified"""
@@ -61,3 +65,19 @@ class TestClass(object):
         x[2] = "value 2", 0
         y = x.random(1)
         assert y == ["value 1"]
+
+    def test_weight_value(self):
+        x = weighteddict.WeightedDict()
+        with pytest.raises(ValueError):
+            x[1] = "value 1", -1
+        with pytest.raises(TypeError):
+            x[1] = "value 1", 'f'
+
+    def test_copy(self):
+        x = weighteddict.WeightedDict()
+        x[1] = "value 1", 1
+        x[2] = "value 2", 2
+        y = x.copy()
+        print(y)
+        assert x[1] == y[1] and x[2] == y[2] and x._total == y._total
+
